@@ -1,8 +1,8 @@
 import sys
 input = sys.stdin.readline
 from collections import deque
+
 def bfs():
-    global res
     while q:
         y, x, w  = q.popleft()
         if x == m-1 and y == n-1:
@@ -20,7 +20,6 @@ def bfs():
                     visit[mvy][mvx][w + 1] = visit[y][x][w] + 1
 
 n,m = map(int,input().split())
-res = 1000001
 mx = [-1,1,0,0]
 my = [0,0,-1,1]
 mage = []
