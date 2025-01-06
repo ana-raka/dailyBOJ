@@ -14,13 +14,9 @@ def solution(video_len, pos, op_start, op_end, commands):
         if op_start <= pos <= op_end:
             pos = op_end
         if command == "prev":
-            pos -= 10
-            if pos < 0:
-                pos = 0
+            pos = max(0, pos - 10)
         else:
-            pos += 10
-            if pos > video_len:
-                pos = video_len
+            pos = min(video_len, pos + 10)
     if op_start <= pos <= op_end:
         pos = op_end
     mm = pos // 60
