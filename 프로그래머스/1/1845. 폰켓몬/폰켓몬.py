@@ -3,7 +3,4 @@
 # 자료구조: 해시
 def solution(nums):
     pmon_set = set(nums)
-    if len(pmon_set) > len(nums) // 2:
-        return len(nums) // 2
-    else:
-        return len(pmon_set)
+    return min(len(nums)/2 , len(pmon_set))
