@@ -1,6 +1,6 @@
 # 알고리즘: 해시
-# 시간 복잡도: 
-# 자료구조: 해시
+# 시간 복잡도: O(N)
+# 자료구조: 디폴트 딕셔너리
 
 from collections import defaultdict
 
