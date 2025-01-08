@@ -4,20 +4,17 @@
 from collections import deque
 
 def solution(priorities, location):
-    deq = deque()
-    for i in range(len(priorities)):
-        if i == location:
-            deq.append((priorities[i], True))
-            continue
-        deq.append((priorities[i], False))
-    priorities.sort()
+    deq = deque((p, i == location) for i, p in enumerate(priorities))
+    sorted_priorities = sorted(priorities)
     cnt = 1
     while deq:
-        if deq[0][0] == priorities[-1] and deq[0][1]:
-            break
-        elif deq[0][0] == priorities[-1]:
+        priority, is_target = deq[0]
+        if priority == sorted_priorities[-1]:
+            if is_target:
+                break
+        
             deq.popleft()
-            priorities.pop()
+            sorted_priorities.pop()
             cnt += 1
         else:
             deq.rotate(-1)        
