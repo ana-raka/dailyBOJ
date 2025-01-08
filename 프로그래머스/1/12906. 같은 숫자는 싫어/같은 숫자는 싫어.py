@@ -5,9 +5,8 @@ from collections import deque
 
 def solution(arr):
     que = deque(arr)
-    answer = [-1]
+    answer = []
     for number in que:
-        if number != answer[-1]:
+        if [number] != answer[-1:]:
             answer.append(number)
-    answer.pop(0)
     return answer
