@@ -1,5 +1,5 @@
 # 알고리즘: 정렬
-# 시간복잡도: O(N)
+# 시간복잡도: O(N^2)
 # 자료구조: 큐
 from collections import deque
 
