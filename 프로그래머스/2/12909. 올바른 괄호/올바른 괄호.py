@@ -3,18 +3,13 @@
 # 자료구조: 스택
 
 def solution(s):
-    temp = []
-    answer = True
-    s = list(s)
-    while s:
-        if s[-1] == ")":
-            temp.append(s.pop())
+    stack = []
+    for char in s:
+        if char == "(":
+            stack.append(char)
         else:
-            if temp:
-                temp.pop()
-            else:
+            if not stack:
                 return False
-            s.pop()
-    if temp:
-        answer = False
-    return answer
+            stack.pop()
+            
+    return len(stack) == 0
