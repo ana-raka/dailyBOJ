@@ -11,12 +11,10 @@ def solution(answers):
     s2 = [2,1,2,3,2,4,2,5]
     s3 = [3,3,1,1,2,2,4,4,5,5]
     result_cnt = [0] * 3
-    idx = 0
-    for answer_num in answers:
+    for idx , answer_num in enumerate(answers):
         result_cnt[0] += is_answer(answer_num, s1, idx)
         result_cnt[1] += is_answer(answer_num, s2, idx)
         result_cnt[2] += is_answer(answer_num, s3, idx)
-        idx += 1
     max_score = max(result_cnt)
     answer = [i + 1 for i in range(3) if result_cnt[i] == max_score]
     return answer
