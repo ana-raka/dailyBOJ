@@ -1,22 +1,21 @@
 # 알고리즘: BFS
-# 시간복잡도: 
+# 시간복잡도: O(N^2)
 # 자료구조: 큐
 from collections import deque
 
 def solution(n, computers):
+    visited = [False] * n
     que = deque()
     answer = 0
     for i in range(n):
-        for j in range(n):
-            if computers[i][j] == 1:
-                computers[i][j] == 0
-                que.append(i)
-                while que:
-                    y = que.popleft()
-                    for idx in range(n):
-                        if computers[y][idx] == 1:
-                            computers[y][idx] = 0
-                            computers[idx][y] = 0
-                            que.append(idx)
-                answer += 1
+        if not visited[i]:
+            visited[i] = True
+            que.append(i)
+            while que:
+                y = que.popleft()
+                for idx, is_connect in enumerate(computers[y]):
+                    if is_connect == 1 and visited[idx] == False:
+                        visited[idx] = True
+                        que.append(idx)
+            answer += 1
     return answer
