@@ -3,6 +3,7 @@
 # 자료구조: 
 def solution(n, times):
     left, right = 0, max(times) * n
+    answer = 0
     while left <= right:
         mid = (left + right) // 2
         total = sum(mid // time for time in times)
